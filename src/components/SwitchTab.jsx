@@ -10,7 +10,7 @@ function SwitchTab({ data, onTabSelect }) {
   }
 
   return (
-    <div className="bg-white rounded-3xl h-[38px] flex items-center p-1 relative">
+    <div className="bg-white rounded-3xl h-[30px] md:h-[38px] flex items-center p-1 relative">
       {data.map((tab, index) => (
         <span
           key={index}
@@ -18,7 +18,7 @@ function SwitchTab({ data, onTabSelect }) {
             activeTab === index
               ? "bg-gradient text-white"
               : "text-[var(--black)]"
-          } px-8 py-2 rounded-3xl cursor-pointer`}
+          } text-sm md:text-base px-4 md:px-8 py-1 rounded-3xl cursor-pointer`}
           onClick={() => handleClick(tab, index)}
         >
           {tab}

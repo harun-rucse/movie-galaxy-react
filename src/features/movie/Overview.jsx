@@ -17,7 +17,7 @@ function Overview() {
       <div className="w-full h-[250px] absolute left-0 bottom-0 bg-opacity-layer" />
 
       <Container>
-        <div className="flex flex-col md:flex-row items-start gap-12 py-8 z-20">
+        <div className="flex flex-col md:flex-row items-start gap-12 pt-8 z-20">
           <div className="md:w-[520px]">
             <Image
               src="https://image.tmdb.org/t/p/original/hYaKxnvqQt4pMtFy5KptUYJo1S0.jpg"

@@ -1,11 +1,11 @@
 import { useRef } from "react";
+import PropTypes from "prop-types";
 import {
   BsFillArrowLeftCircleFill,
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
-import SingleItem from "./SingleItem";
 
-function Carousel() {
+function Carousel({ children }) {
   const carouselRef = useRef();
 
   const navigation = (dir) => {
@@ -32,15 +32,7 @@ function Carousel() {
         className="flex items-center w-full gap-5 overflow-hidden"
         ref={carouselRef}
       >
-        <SingleItem />
-        <SingleItem />
-        <SingleItem />
-        <SingleItem />
-        <SingleItem />
-        <SingleItem />
-        <SingleItem />
-        <SingleItem />
-        <SingleItem />
+        {children}
       </div>
       <BsFillArrowRightCircleFill
         onClick={() => navigation("right")}
@@ -49,5 +41,8 @@ function Carousel() {
     </div>
   );
 }
+Carousel.propTypes = {
+  children: PropTypes.node,
+};
 
 export default Carousel;

@@ -5,7 +5,7 @@ import TopCast from "./TopCast";
 
 function MovieDetails() {
   return (
-    <div className="w-full min-h-full flex flex-col gap-12 pt-[60px]">
+    <div className="w-full min-h-full flex flex-col gap-16 pt-[60px]">
       <Overview />
       <TopCast />
       <OfficialVideos />

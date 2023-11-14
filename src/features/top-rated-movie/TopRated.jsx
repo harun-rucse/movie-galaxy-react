@@ -1,5 +1,6 @@
 import Carousel from "../../components/Carousel";
 import Container from "../../components/Container";
+import SingleItem from "../../components/SingleItem";
 import SwitchTab from "../../components/SwitchTab";
 
 function TopRated() {
@@ -18,7 +19,17 @@ function TopRated() {
           />
         </div>
 
-        <Carousel />
+        <Carousel>
+          <SingleItem />
+          <SingleItem />
+          <SingleItem />
+          <SingleItem />
+          <SingleItem />
+          <SingleItem />
+          <SingleItem />
+          <SingleItem />
+          <SingleItem />
+        </Carousel>
       </div>
     </Container>
   );

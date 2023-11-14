@@ -1,10 +1,14 @@
+import { Link } from "react-router-dom";
 import CircleRating from "./CircleRating";
 import Image from "./Image";
 
 function SingleItem() {
   return (
-    <div className="flex-shrink-0 w-[160px] md:w-[calc(20%-16px)] relative">
-      <div className="relative w-full h-full">
+    <Link
+      to="/movie/1235"
+      className="flex-shrink-0 w-[160px] md:w-[calc(20%-16px)] relative"
+    >
+      <div className="relative w-full h-full transition duration-500 hover:opacity-60">
         <Image
           src="https://image.tmdb.org/t/p/original/hYaKxnvqQt4pMtFy5KptUYJo1S0.jpg"
           className="rounded-xl w-full h-full object-cover object-center"
@@ -29,7 +33,7 @@ function SingleItem() {
         </h2>
         <span className="opacity-50 text-sm">Oct 19, 2023</span>
       </div>
-    </div>
+    </Link>
   );
 }
 

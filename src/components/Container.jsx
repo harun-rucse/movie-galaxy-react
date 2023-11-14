@@ -9,7 +9,7 @@ function Container({ children }) {
 }
 
 Container.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.node,
 };
 
 export default Container;

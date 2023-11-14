@@ -54,6 +54,7 @@
   height: 100%;
 }
 
+/* react-circular-progressbar customize */
 .CircularProgressbar .CircularProgressbar-text {
   font-size: 34px;
   font-weight: 700;
@@ -61,6 +62,46 @@
 }
 .CircularProgressbar .CircularProgressbar-trail {
   stroke: transparent;
+}
+
+/* react-select customize */
+.react-select-container {
+  width: 100% !important;
+}
+
+.react-select__control {
+  min-width: 220px !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  background-color: var(--black-light) !important;
+  border-radius: 20px !important;
+}
+
+.react-select__value-container .react-select__placeholder,
+.react-select__input-container {
+  color: white !important;
+  margin: 0 10px !important;
+}
+
+.react-select__single-value {
+  color: white !important;
+}
+
+.react-select__multi-value {
+  background-color: var(--black3) !important;
+  border-radius: 10px !important;
+}
+
+.react-select__multi-value__label {
+  color: white !important;
+}
+
+.react-select__menu {
+  top: 40px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: var(--black) !important;
 }
 
 .skeleton {

@@ -13,11 +13,13 @@ function Header() {
     <div className="fixed w-full h-[60px] z-50 bg-[#00000040] backdrop-blur">
       <Container>
         <div className="w-full h-[60px] flex items-center justify-between">
-          <img
-            src="/images/movix-logo.svg"
-            alt=""
-            className="h-[50px] object-cover"
-          />
+          <Link to="/">
+            <img
+              src="/images/movix-logo.svg"
+              alt=""
+              className="h-[50px] object-cover"
+            />
+          </Link>
           <ul className="flex items-center gap-8">
             <Link
               to="/explore/movie"
@@ -26,7 +28,7 @@ function Header() {
               <li>Movies</li>
             </Link>
             <Link
-              to="/explore/tv"
+              to="/explore/tv-shows"
               className="hidden md:block transition hover:text-[var(--pink)]"
             >
               <li>TV Shows</li>

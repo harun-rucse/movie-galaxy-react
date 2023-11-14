@@ -1,13 +1,23 @@
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { HiOutlineSearch } from "react-icons/hi";
 import { VscChromeClose } from "react-icons/vsc";
 import { SlMenu } from "react-icons/sl";
 import Container from "./Container";
-import { Link } from "react-router-dom";
-import { useState } from "react";
 
 function Header() {
+  const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState("");
   const [showSearchbar, setShowSearchBar] = useState(false);
   const [showMobileMenu, setshowMobileMenu] = useState(false);
+
+  function handleSearch(e) {
+    if (e.key === "Enter" && searchQuery) {
+      navigate(`/search/${searchQuery}`);
+      setShowSearchBar(false);
+      setSearchQuery("");
+    }
+  }
 
   return (
     <div className="fixed w-full h-[60px] z-50 bg-[#00000040] backdrop-blur">
@@ -79,6 +89,9 @@ function Header() {
                 type="text"
                 placeholder="Search for a movie or tv show..."
                 className="w-full h-[50px] bg-transparent focus:outline-none text-black text-ms md:text-lg px-4 md:px-8 placeholder-gray-500"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyDown={handleSearch}
               />
               <VscChromeClose
                 size={20}

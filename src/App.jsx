@@ -5,6 +5,7 @@ import PageNotFound from "./pages/PageNotFound";
 import Movies from "./pages/Movies";
 import TvShows from "./pages/TvShows";
 import Movie from "./pages/Movie";
+import Search from "./pages/Search";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/explore/movie" element={<Movies />} />
           <Route path="/explore/tv-shows" element={<TvShows />} />
           <Route path="/movie/:id" element={<Movie />} />
+          <Route path="/search/:title" element={<Search />} />
         </Route>
 
         <Route path="*" element={<PageNotFound />} />

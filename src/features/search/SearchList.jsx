@@ -1,14 +1,9 @@
 import ListItems from "../../components/ListItems";
 import SingleItem from "../../components/SingleItem";
 
-function MovieList() {
+function SearchList() {
   return (
     <ListItems>
-      <SingleItem />
-      <SingleItem />
-      <SingleItem />
-      <SingleItem />
-      <SingleItem />
       <SingleItem />
       <SingleItem />
       <SingleItem />
@@ -17,4 +12,4 @@ function MovieList() {
   );
 }
 
-export default MovieList;
+export default SearchList;

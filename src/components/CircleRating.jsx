@@ -9,7 +9,7 @@ function CircleRating({ rating, maxValue, className, textColor, textSize }) {
       <CircularProgressbar
         value={rating}
         maxValue={maxValue}
-        text={rating}
+        text={rating?.toFixed(1)}
         styles={buildStyles({
           pathColor: rating < 5 ? "red" : rating < 7 ? "orange" : "#4cbb17",
           textColor: textColor,
@@ -31,7 +31,7 @@ CircleRating.propTypes = {
   maxValue: PropTypes.number,
   className: PropTypes.string,
   textColor: PropTypes.string,
-  textSize: PropTypes.string,
+  textSize: PropTypes.number,
 };
 
 export default CircleRating;

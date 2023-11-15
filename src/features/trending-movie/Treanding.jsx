@@ -1,11 +1,16 @@
+import { useState } from "react";
 import Carousel from "../../components/Carousel";
 import Container from "../../components/Container";
 import SingleItem from "../../components/SingleItem";
 import SwitchTab from "../../components/SwitchTab";
+import { useTrending } from "./useTrending";
 
 function Treanding() {
+  const [timeWindow, setTimeWindow] = useState("day");
+  const { isLoading, trendings } = useTrending(timeWindow);
+
   function hanldeTabSelect(tab) {
-    console.log(tab);
+    setTimeWindow(tab === "Day" ? "day" : "week");
   }
 
   return (
@@ -16,16 +21,10 @@ function Treanding() {
           <SwitchTab data={["Day", "Week"]} onTabSelect={hanldeTabSelect} />
         </div>
 
-        <Carousel>
-          <SingleItem />
-          <SingleItem />
-          <SingleItem />
-          <SingleItem />
-          <SingleItem />
-          <SingleItem />
-          <SingleItem />
-          <SingleItem />
-          <SingleItem />
+        <Carousel isLoading={isLoading}>
+          {trendings?.map((item) => (
+            <SingleItem key={item.id} item={item} />
+          ))}
         </Carousel>
       </div>
     </Container>

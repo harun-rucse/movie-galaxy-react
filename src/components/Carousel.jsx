@@ -4,8 +4,9 @@ import {
   BsFillArrowLeftCircleFill,
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
+import Skeleton from "./Skeleton";
 
-function Carousel({ children }) {
+function Carousel({ isLoading, children }) {
   const carouselRef = useRef();
 
   const navigation = (dir) => {
@@ -32,7 +33,7 @@ function Carousel({ children }) {
         className="flex items-center w-full gap-5 overflow-hidden"
         ref={carouselRef}
       >
-        {children}
+        {isLoading ? <Skeleton count={5} /> : children}
       </div>
       <BsFillArrowRightCircleFill
         onClick={() => navigation("right")}
@@ -42,7 +43,8 @@ function Carousel({ children }) {
   );
 }
 Carousel.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
+  isLoading: PropTypes.bool,
 };
 
 export default Carousel;

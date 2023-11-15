@@ -22,7 +22,7 @@ function HeroBanner() {
       {!isLoading && (
         <div className="w-full h-full absolute top-0 left-0 opacity-50 overflow-hidden">
           <Image
-            src={background}
+            src={background.toString()}
             alt="Hero Image"
             className="w-full h-full object-cover object-center "
           />

@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { HiOutlineSearch } from "react-icons/hi";
 import { VscChromeClose } from "react-icons/vsc";
 import { SlMenu } from "react-icons/sl";
@@ -7,9 +7,14 @@ import Container from "./Container";
 
 function Header() {
   const navigate = useNavigate();
+  const location = useLocation();
   const [searchQuery, setSearchQuery] = useState("");
   const [showSearchbar, setShowSearchBar] = useState(false);
   const [showMobileMenu, setshowMobileMenu] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
 
   function handleSearch(e) {
     if (e.key === "Enter" && searchQuery) {

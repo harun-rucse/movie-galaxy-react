@@ -1,17 +1,33 @@
 import Image from "../../components/Image";
 import Container from "../../components/Container";
 import InputBox from "./InputBox";
+import { useConfigure } from "../../hooks/useConfigure";
+import { useEffect, useState } from "react";
+import { usePopularMovies } from "../popular-movie/usePopularMovies";
 
 function HeroBanner() {
+  const [background, setBackground] = useState("");
+  const { configuration } = useConfigure();
+  const { isLoading, popularMovies } = usePopularMovies();
+
+  useEffect(() => {
+    setBackground(
+      configuration?.backdrop_path +
+        popularMovies?.[Math.floor(Math.random() * 20)]?.backdrop_path
+    );
+  }, [configuration, popularMovies]);
+
   return (
     <div className="w-full h-[450px] md:h-[700px] flex items-center justify-center relative">
-      <div className="w-full h-full absolute top-0 left-0 opacity-50 overflow-hidden">
-        <Image
-          src="https://image.tmdb.org/t/p/original/xHqTnPtpd9Qd7R0fVtoqxZYM67Q.jpg"
-          alt="Hero Image"
-          className="w-full h-full object-cover object-center "
-        />
-      </div>
+      {!isLoading && (
+        <div className="w-full h-full absolute top-0 left-0 opacity-50 overflow-hidden">
+          <Image
+            src={background}
+            alt="Hero Image"
+            className="w-full h-full object-cover object-center "
+          />
+        </div>
+      )}
 
       <div className="w-full h-[250px] absolute left-0 bottom-0 bg-opacity-layer" />
 

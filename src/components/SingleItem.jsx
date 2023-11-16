@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import CircleRating from "./CircleRating";
 import Image from "./Image";
+import Genres from "./Genres";
 import { useConfigure } from "../hooks/useConfigure";
 import { formatDate } from "../utils";
 
@@ -22,14 +23,7 @@ function SingleItem({ item }) {
           }
           className="rounded-xl w-full h-full object-cover object-center"
         />
-        <div className="absolute right-1 bottom-3 flex items-center gap-2 flex-wrap">
-          <span className="bg-[var(--pink)] text-xs px-1 py-[2px] rounded-md">
-            Comedy
-          </span>
-          <span className="bg-[var(--pink)] text-xs px-1 py-[2px] rounded-md">
-            Drama
-          </span>
-        </div>
+        <Genres data={item?.genre_ids} />
       </div>
 
       <div className="absolute left-2 bottom-[60px] mb-2">

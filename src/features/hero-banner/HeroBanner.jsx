@@ -3,19 +3,19 @@ import Container from "../../components/Container";
 import InputBox from "./InputBox";
 import { useConfigure } from "../../hooks/useConfigure";
 import { useEffect, useState } from "react";
-import { usePopularMovies } from "../popular-movie/usePopularMovies";
+import { usePopular } from "../popular-movie/usePopular";
 
 function HeroBanner() {
   const [background, setBackground] = useState("");
   const { configuration } = useConfigure();
-  const { isLoading, popularMovies } = usePopularMovies();
+  const { isLoading, populars } = usePopular("movie");
 
   useEffect(() => {
     setBackground(
       configuration?.backdrop_path +
-        popularMovies?.[Math.floor(Math.random() * 20)]?.backdrop_path
+        populars?.[Math.floor(Math.random() * 20)]?.backdrop_path
     );
-  }, [configuration, popularMovies]);
+  }, [configuration, populars]);
 
   return (
     <div className="w-full h-[450px] md:h-[700px] flex items-center justify-center relative">

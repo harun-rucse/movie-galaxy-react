@@ -8,13 +8,14 @@ function TopCast({ isLoading, data }) {
     <Container>
       <div className="w-full z-20 space-y-4 -mt-8">
         <h2 className="text-2xl text-white">Top Cast</h2>
-        {data?.length > 0 ? (
-          <Carousel isLoading={isLoading}>
-            {data?.map((cast) => (
-              <SingleCast key={cast.id} item={cast} />
-            ))}
-          </Carousel>
-        ) : (
+
+        <Carousel isLoading={isLoading}>
+          {data?.map((cast) => (
+            <SingleCast key={cast.id} item={cast} />
+          ))}
+        </Carousel>
+
+        {!isLoading && data?.length === 0 && (
           <span className="text-gray-400 block text-center">No cast found</span>
         )}
       </div>

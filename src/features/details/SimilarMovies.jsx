@@ -8,19 +8,17 @@ function SimilarMovies({ isLoading, data, mediaType }) {
     <Container>
       <div className="w-full z-20 space-y-4">
         <h2 className="text-2xl text-white">Similar Movies</h2>
-        <Carousel isLoading={isLoading}>
-          {data?.length > 0 ? (
-            <Carousel isLoading={isLoading}>
-              {data?.map((video) => (
-                <SingleItem key={video.id} item={video} mediaType={mediaType} />
-              ))}
-            </Carousel>
-          ) : (
-            <span className="text-gray-400 block text-center">
-              No video found
-            </span>
-          )}
-        </Carousel>
+        {data?.length > 0 ? (
+          <Carousel isLoading={isLoading}>
+            {data?.map((video) => (
+              <SingleItem key={video.id} item={video} mediaType={mediaType} />
+            ))}
+          </Carousel>
+        ) : (
+          <span className="text-gray-400 block text-center">
+            No video found
+          </span>
+        )}
       </div>
     </Container>
   );

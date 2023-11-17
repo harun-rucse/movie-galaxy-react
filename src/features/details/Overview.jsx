@@ -6,6 +6,7 @@ import PlayButton from "./PlayButton";
 import { useConfigure } from "../../hooks/useConfigure";
 import { formatDate } from "../../utils";
 import VideoPopup from "./VideoPopup";
+import OverviewSkeleton from "./OverviewSkeleton";
 
 const toHoursAndMinutes = (totalMinutes) => {
   const hours = Math.floor(totalMinutes / 60);
@@ -21,7 +22,7 @@ function Overview({ isLoading, data, video, crew }) {
     (c) => c.job === "Screenplay" || c.job === "Story" || c.job === "Writer"
   );
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <OverviewSkeleton />;
 
   return (
     <div className="w-full h-full md:h-[700px] flex items-center justify-center">
@@ -36,7 +37,7 @@ function Overview({ isLoading, data, video, crew }) {
       <div className="w-full h-[250px] absolute left-0 bottom-0 bg-opacity-layer" />
 
       <Container>
-        <div className="flex flex-col md:flex-row items-start gap-12 pt-8 z-20">
+        <div className="flex flex-col md:flex-row items-start gap-12 pt-4 z-20">
           <div className="md:w-[520px]">
             <Image
               src={

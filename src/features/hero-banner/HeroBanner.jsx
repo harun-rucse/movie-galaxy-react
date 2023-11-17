@@ -3,7 +3,7 @@ import Container from "../../components/Container";
 import InputBox from "./InputBox";
 import { useConfigure } from "../../hooks/useConfigure";
 import { useEffect, useState } from "react";
-import { usePopular } from "../popular-movie/usePopular";
+import { usePopular } from "../popular/usePopular";
 
 function HeroBanner() {
   const [background, setBackground] = useState("");

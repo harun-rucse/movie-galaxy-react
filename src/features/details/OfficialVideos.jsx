@@ -4,8 +4,6 @@ import SingleOfficialVideo from "./SingleOfficialVideo";
 import Carousel from "../../components/Carousel";
 
 function OfficialVideos({ isLoading, data }) {
-  if (isLoading) return <p>Loading...</p>;
-
   return (
     <Container>
       <div className="w-full z-20 space-y-4">

@@ -26,7 +26,7 @@ function Popular() {
 
         <Carousel isLoading={isLoading}>
           {populars?.map((item) => (
-            <SingleItem key={item.id} item={item} />
+            <SingleItem key={item.id} item={item} mediaType={mediaType} />
           ))}
         </Carousel>
       </div>

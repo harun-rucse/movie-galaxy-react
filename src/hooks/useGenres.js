@@ -23,7 +23,7 @@ export function useGenres() {
 
   if (!isLoading) {
     [...movieGenres.genres, ...tvGenres.genres]?.map(
-      (item) => (genres[item.id] = item)
+      (item) => (genres[item?.id] = item)
     );
   }
 

@@ -20,7 +20,7 @@ function Genres({ data }) {
 }
 
 Genres.propTypes = {
-  data: PropTypes.array.isRequired,
+  data: PropTypes.array,
 };
 
 export default Genres;

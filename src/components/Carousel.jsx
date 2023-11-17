@@ -43,7 +43,7 @@ function Carousel({ isLoading, children }) {
   );
 }
 Carousel.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   isLoading: PropTypes.bool,
 };
 

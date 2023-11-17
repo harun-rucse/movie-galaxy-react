@@ -23,7 +23,11 @@ function Treanding() {
 
         <Carousel isLoading={isLoading}>
           {trendings?.map((item) => (
-            <SingleItem key={item.id} item={item} />
+            <SingleItem
+              key={item.id}
+              item={item}
+              mediaType={item?.media_type}
+            />
           ))}
         </Carousel>
       </div>

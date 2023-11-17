@@ -6,12 +6,12 @@ import Genres from "./Genres";
 import { useConfigure } from "../hooks/useConfigure";
 import { formatDate } from "../utils";
 
-function SingleItem({ item }) {
+function SingleItem({ item, mediaType }) {
   const { configuration } = useConfigure();
 
   return (
     <Link
-      to={`/movie/${item?.id}`}
+      to={`/${mediaType}/${item?.id}`}
       className="flex-shrink-0 w-[160px] md:w-[calc(20%-16px)] relative"
     >
       <div className="relative w-full h-full transition duration-500 hover:opacity-60">
@@ -47,6 +47,7 @@ function SingleItem({ item }) {
 
 SingleItem.propTypes = {
   item: PropTypes.object.isRequired,
+  mediaType: PropTypes.string.isRequired,
 };
 
 export default SingleItem;

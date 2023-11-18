@@ -6,7 +6,7 @@ import Genres from "./Genres";
 import { useConfigure } from "../hooks/useConfigure";
 import { formatDate } from "../utils";
 
-function SingleItem({ item, mediaType }) {
+function SingleItem({ item, mediaType, searchResult }) {
   const { configuration } = useConfigure();
 
   return (
@@ -23,17 +23,19 @@ function SingleItem({ item, mediaType }) {
           }
           className="rounded-xl w-full h-full object-cover object-center"
         />
-        <Genres data={item?.genre_ids} />
+        {!searchResult && <Genres data={item?.genre_ids} />}
       </div>
 
-      <div className="absolute left-2 bottom-[60px] mb-2">
-        <CircleRating
-          rating={item?.vote_average}
-          className="w-[50px] h-[50px] bg-white"
-        />
-      </div>
+      {!searchResult && (
+        <div className="absolute left-2 bottom-[60px] mb-2">
+          <CircleRating
+            rating={item?.vote_average}
+            className="w-[50px] h-[50px] bg-white"
+          />
+        </div>
+      )}
 
-      <div className="pt-10 w-full">
+      <div className={`${searchResult ? "pt-6" : "pt-10"} w-full`}>
         <h2 className="text-xl leading-6 line-clamp-1 text-ellipsis mb-2">
           {item?.title || item?.name}
         </h2>
@@ -45,9 +47,14 @@ function SingleItem({ item, mediaType }) {
   );
 }
 
+SingleItem.defaultProps = {
+  searchResult: false,
+};
+
 SingleItem.propTypes = {
   item: PropTypes.object.isRequired,
   mediaType: PropTypes.string.isRequired,
+  searchResult: PropTypes.bool,
 };
 
 export default SingleItem;

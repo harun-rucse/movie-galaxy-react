@@ -148,8 +148,8 @@ function Overview({ isLoading, data, video, crew }) {
 
 Overview.propTypes = {
   isLoading: PropTypes.bool,
-  data: PropTypes.object.isRequired,
-  video: PropTypes.object.isRequired,
+  data: PropTypes.object,
+  video: PropTypes.object,
   crew: PropTypes.array,
 };
 

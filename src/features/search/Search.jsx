@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 import ListItems from "../../components/ListItems";
@@ -5,7 +6,6 @@ import SingleItem from "../../components/SingleItem";
 import Topbar from "../../components/Topbar";
 import Spinner from "../../components/Spinner";
 import { useSearch } from "./useSearch";
-import { useEffect, useState } from "react";
 
 function Search() {
   const { query } = useParams();
@@ -15,14 +15,18 @@ function Search() {
   const { data, totalPage, totalResults } = useSearch(query, page);
 
   useEffect(() => {
+    setPage(1);
+    setResults([]);
+  }, [query]);
+
+  useEffect(() => {
     if (!data) return;
 
-    results?.length > 0
-      ? setResults((prevResults) => [...prevResults, ...data])
-      : setResults(data);
+    setResults((prevResults) => [...prevResults, ...data]);
   }, [data]);
 
   function handleNext() {
+    console.log("Handle Next Page", page + 1);
     setPage((page) => page + 1);
   }
 
@@ -41,9 +45,9 @@ function Search() {
         loader={<Spinner />}
       >
         <ListItems>
-          {results?.map((item) => (
+          {results?.map((item, i) => (
             <SingleItem
-              key={item?.id}
+              key={i}
               item={item}
               mediaType={item?.media_type}
               searchResult

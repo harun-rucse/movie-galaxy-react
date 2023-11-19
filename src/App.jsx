@@ -5,10 +5,9 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import Homepage from "./pages/Homepage";
 import AppLayout from "./components/AppLayout";
 import PageNotFound from "./pages/PageNotFound";
-import Movies from "./pages/Movies";
-import TvShows from "./pages/TvShows";
 import Details from "./pages/Details";
 import Search from "./pages/Search";
+import Explore from "./pages/Explore";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -26,13 +25,11 @@ function App() {
         <Routes>
           <Route path="/" element={<AppLayout />}>
             <Route index element={<Homepage />} />
-            <Route path="/explore/movie" element={<Movies />} />
-            <Route path="/explore/tv-shows" element={<TvShows />} />
+            <Route path="/explore/:mediaType" element={<Explore />} />
             <Route path="/:mediaType/:id" element={<Details />} />
             <Route path="/search/:query" element={<Search />} />
+            <Route path="*" element={<PageNotFound />} />
           </Route>
-
-          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>

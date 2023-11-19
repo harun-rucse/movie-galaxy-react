@@ -26,7 +26,6 @@ function Search() {
   }, [data]);
 
   function handleNext() {
-    console.log("Handle Next Page", page + 1);
     setPage((page) => page + 1);
   }
 

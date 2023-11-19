@@ -43,7 +43,7 @@ function Header() {
               <li>Movies</li>
             </Link>
             <Link
-              to="/explore/tv-shows"
+              to="/explore/tv"
               className="hidden md:block transition hover:text-[var(--pink)]"
             >
               <li>TV Shows</li>

@@ -14,7 +14,7 @@ function ExploreList({ mediaType }) {
 
   const filterValues = searchParams.get("genres");
   const sortByValue = searchParams.get("sortBy");
-  const { data, totalPage } = useExplore(
+  const { isLoading, data, totalPage } = useExplore(
     mediaType,
     page,
     filterValues,
@@ -35,6 +35,8 @@ function ExploreList({ mediaType }) {
   function handleNext() {
     setPage((page) => page + 1);
   }
+
+  if (isLoading) return <Spinner />;
 
   return (
     <InfiniteScroll
